@@ -2,8 +2,44 @@ $primary_colour: #fff;
 $primary_background_colour: #323232;
 $secondary_colour: #3a64af;
 $secondary_background_colour: #2f0063;
-$secondary_background: linear-gradient(217deg, #3a64af, rgba(255,0,0,0) 70.71%), linear-gradient(127deg, #2f0063, rgba(0,255,0,0) 70.71%), linear-gradient(336deg, #6b0aba, rgba(0,0,255,0) 70.71%);
+$secondary_background: linear-gradient(217deg, #3a64af, rgba(255,0,0,0) 100%), linear-gradient(127deg, #2f0063, rgba(0,255,0,0) 100%), linear-gradient(336deg, #6b0aba, rgba(0,0,255,0) 100%);
+$trecy_colour: #ad2a2f;
+$forfy_colour: #4860a4;
+$background_red: linear-gradient(217deg, $trecy_colour, rgba(255,0,0,0) 100%), linear-gradient(127deg, lighten($trecy_colour,10%), rgba(0,255,0,0) 100%), linear-gradient(336deg, darken($trecy_colour, 5%), rgba(0,0,255,0) 100%);
+$background_blue: linear-gradient(127deg, $forfy_colour, rgba(255,0,0,0) 100%), linear-gradient(217deg, lighten($forfy_colour,10%), rgba(0,255,0,0) 100%), linear-gradient(336deg, darken($forfy_colour, 5%), rgba(0,0,255,0) 100%);
 $font: sans-serif;
+@keyframes wavvy_text {
+  0% {
+    transform: rotate(0deg) translateY(5px) scale(1.01);
+  }
+
+  25% {
+    transform: rotate(1deg) translateY(0) scale(1);
+  }
+
+  50% {
+    transform: rotate(0deg) translateY(-5px) scale(0.99);
+  }
+
+  75% {
+    transform: rotate(-1deg) translateY(0) scale(1);
+  }
+
+  100% {
+    transform: rotate(0deg) translateY(5px) scale(1.01);
+  }
+}
+@keyframes rotation {
+  from {
+    // filter: hue-rotate(0deg);
+    transform: rotate(0deg);
+  }
+
+  to {
+    // filter: hue-rotate(359deg);
+    transform: rotate(359deg);
+  }
+}
 
 * {
   margin: 0;
@@ -37,6 +73,7 @@ a {
     h1 {
       text-align: center;
       font-size: 64px;
+      animation: 60s ease-in-out infinite wavvy_text;
     }
   }
 
@@ -86,11 +123,11 @@ a {
       }
 
       &:nth-child(odd) {
-        background: #ad2a2f;
+        background: $background_red;
       }
 
       &:nth-child(even) {
-        background: #4860a4;
+        background: $background_blue;
       }
 
       &:hover {
@@ -102,5 +139,19 @@ a {
 
   .floor {
     flex: 1 1 50px;
+
+    p {
+      display: inline-block;
+    }
+  }
+}
+
+.nugget {
+  background: $background_red;
+  padding: 6px;
+  border-radius: 6px;
+
+  &:hover {
+    animation: 1s ease infinite rotation;
   }
 }

@@ -1,3 +1,28 @@
+@keyframes wavvy_text {
+  0% {
+    transform: rotate(0deg) translateY(5px) scale(1.01);
+  }
+  25% {
+    transform: rotate(1deg) translateY(0) scale(1);
+  }
+  50% {
+    transform: rotate(0deg) translateY(-5px) scale(0.99);
+  }
+  75% {
+    transform: rotate(-1deg) translateY(0) scale(1);
+  }
+  100% {
+    transform: rotate(0deg) translateY(5px) scale(1.01);
+  }
+}
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
 * {
   margin: 0;
   padding: 0;
@@ -6,7 +31,7 @@
 body {
   color: #fff;
   font-family: sans-serif;
-  background: linear-gradient(217deg, #3a64af, rgba(255, 0, 0, 0) 70.71%), linear-gradient(127deg, #2f0063, rgba(0, 255, 0, 0) 70.71%), linear-gradient(336deg, #6b0aba, rgba(0, 0, 255, 0) 70.71%);
+  background: linear-gradient(217deg, #3a64af, rgba(255, 0, 0, 0) 100%), linear-gradient(127deg, #2f0063, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #6b0aba, rgba(0, 0, 255, 0) 100%);
 }
 
 a {
@@ -30,6 +55,7 @@ a {
 .room .cloth h1 {
   text-align: center;
   font-size: 64px;
+  animation: 60s ease-in-out infinite wavvy_text;
 }
 .room .napkin {
   flex: 1 1 50px;
@@ -83,10 +109,10 @@ a {
   }
 }
 .room .table .plate:nth-child(odd) {
-  background: #ad2a2f;
+  background: linear-gradient(217deg, #ad2a2f, rgba(255, 0, 0, 0) 100%), linear-gradient(127deg, #cf3b40, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #982529, rgba(0, 0, 255, 0) 100%);
 }
 .room .table .plate:nth-child(even) {
-  background: #4860a4;
+  background: linear-gradient(127deg, #4860a4, rgba(255, 0, 0, 0) 100%), linear-gradient(217deg, #647bbb, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #405692, rgba(0, 0, 255, 0) 100%);
 }
 .room .table .plate:hover {
   transform: translateY(-16px);
@@ -94,6 +120,18 @@ a {
 }
 .room .floor {
   flex: 1 1 50px;
+}
+.room .floor p {
+  display: inline-block;
+}
+
+.nugget {
+  background: linear-gradient(217deg, #ad2a2f, rgba(255, 0, 0, 0) 100%), linear-gradient(127deg, #cf3b40, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #982529, rgba(0, 0, 255, 0) 100%);
+  padding: 6px;
+  border-radius: 6px;
+}
+.nugget:hover {
+  animation: 1s ease infinite rotation;
 }
 
 /*# sourceMappingURL=master.css.map */
