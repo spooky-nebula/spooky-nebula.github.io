@@ -131,7 +131,7 @@ a {
   border-radius: 6px;
 }
 .nugget:hover {
-  animation: 1s ease infinite rotation;
+  animation: 1s infinite rotation;
 }
 
 /*# sourceMappingURL=master.css.map */
