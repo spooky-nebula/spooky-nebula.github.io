@@ -67,7 +67,7 @@ a {
   text-align: center;
 }
 .room .table {
-  flex: 2 1 200px;
+  flex: 2 1 100px;
   display: flex;
   margin-top: 20px;
   flex-wrap: wrap;
@@ -89,7 +89,6 @@ a {
   background: #fff;
   margin: 16px;
   padding: 16px;
-  font-size: 24px;
   border-radius: 16px;
   transform: translateY(0px);
   transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
@@ -98,14 +97,45 @@ a {
 }
 @media all and (min-width: 600px) {
   .room .table .plate {
-    min-height: 50px;
+    min-height: 0;
     flex: 1 1 100px;
+    max-width: 300px;
+  }
+  .room .table .plate:hover {
+    transform: translateY(16px);
+    box-shadow: 0 -16px 0 #323232;
+  }
+  .room .table .plate:hover p:nth-child(even) {
+    max-height: 100px;
+    opacity: 1;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out 0.3s;
+  }
+  .room .table .plate p:nth-child(odd) {
+    font-size: 24px;
+    height: auto;
+    margin: auto;
+  }
+  .room .table .plate p:nth-child(even) {
+    margin-top: 8px;
+    font-size: 20px;
+    overflow: hidden;
+    max-height: 0;
+    opacity: 0;
+    transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
   }
 }
 @media all and (max-width: 600px) {
   .room .table .plate {
     min-height: 0;
-    flex: 1 1 0;
+    flex: 1 1;
+  }
+  .room .table .plate p:nth-child(odd) {
+    font-size: 20px;
+    height: auto;
+  }
+  .room .table .plate p:nth-child(even) {
+    margin: 0 8px;
+    font-size: 18px;
   }
 }
 .room .table .plate:nth-child(odd) {
@@ -114,12 +144,8 @@ a {
 .room .table .plate:nth-child(even) {
   background: linear-gradient(127deg, #4860a4, rgba(255, 0, 0, 0) 100%), linear-gradient(217deg, #647bbb, rgba(0, 255, 0, 0) 100%), linear-gradient(336deg, #405692, rgba(0, 0, 255, 0) 100%);
 }
-.room .table .plate:hover {
-  transform: translateY(-16px);
-  box-shadow: 0 16px 0 #323232;
-}
 .room .floor {
-  flex: 1 1 50px;
+  flex: 1 1 100px;
 }
 .room .floor p {
   display: inline-block;

@@ -89,7 +89,7 @@ a {
   }
 
   .table {
-    flex: 2 1 200px;
+    flex: 2 1 100px;
     display: flex;
     margin-top: 20px;
     flex-wrap: wrap;
@@ -107,19 +107,65 @@ a {
       background: $primary_colour;
       margin: 16px;
       padding: 16px;
-      font-size: 24px;
       border-radius: 16px;
       transform: translateY(0px);
       transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
       box-shadow: 0 0 0 $primary_background_colour;
       text-align: center;
+      // For big screens we have all the fancy hover effects
       @media all and (min-width: 600px) {
-        min-height: 50px;
+        min-height: 0;
         flex: 1 1 100px;
+        max-width: 300px;
+
+        &:hover {
+          transform: translateY(16px);
+          box-shadow: 0 -16px 0 $primary_background_colour;
+
+          p {
+            &:nth-child(odd) {}
+
+            &:nth-child(even) {
+              max-height: 100px;
+              opacity: 1;
+              transition: max-height 0.3s ease-out, opacity 0.3s ease-out 0.3s;
+            }
+          }
+        }
+
+        p {
+          &:nth-child(odd) {
+            font-size: 24px;
+            height: auto;
+            margin: auto;
+          }
+
+          &:nth-child(even) {
+            margin-top: 8px;
+            font-size: 20px;
+            overflow: hidden;
+            max-height: 0;
+            opacity: 0;
+            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
+          }
+        }
       }
+      // For small screens we just have the non-fancy static buttons
       @media all and (max-width: 600px) {
         min-height: 0;
-        flex: 1 1 0;
+        flex: 1 1;
+
+        p {
+          &:nth-child(odd) {
+            font-size: 20px;
+            height: auto;
+          }
+
+          &:nth-child(even) {
+            margin: 0 8px;
+            font-size: 18px;
+          }
+        }
       }
 
       &:nth-child(odd) {
@@ -129,16 +175,11 @@ a {
       &:nth-child(even) {
         background: $background_blue;
       }
-
-      &:hover {
-        transform: translateY(-16px);
-        box-shadow: 0 16px 0 $primary_background_colour;
-      }
     }
   }
 
   .floor {
-    flex: 1 1 50px;
+    flex: 1 1 100px;
 
     p {
       display: inline-block;
