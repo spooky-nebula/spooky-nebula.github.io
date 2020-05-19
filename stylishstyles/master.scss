@@ -1,12 +1,8 @@
 $primary_colour: #fff;
-$primary_background_colour: #323232;
-$secondary_colour: #3a64af;
+$primary_background_colour: #121212;
+$secondary_colour: #f74843;
 $secondary_background_colour: #2f0063;
-$secondary_background: linear-gradient(217deg, #3a64af, rgba(255,0,0,0) 100%), linear-gradient(127deg, #2f0063, rgba(0,255,0,0) 100%), linear-gradient(336deg, #6b0aba, rgba(0,0,255,0) 100%);
-$trecy_colour: #ad2a2f;
-$forfy_colour: #4860a4;
-$background_red: linear-gradient(217deg, $trecy_colour, rgba(255,0,0,0) 100%), linear-gradient(127deg, lighten($trecy_colour,10%), rgba(0,255,0,0) 100%), linear-gradient(336deg, darken($trecy_colour, 5%), rgba(0,0,255,0) 100%);
-$background_blue: linear-gradient(127deg, $forfy_colour, rgba(255,0,0,0) 100%), linear-gradient(217deg, lighten($forfy_colour,10%), rgba(0,255,0,0) 100%), linear-gradient(336deg, darken($forfy_colour, 5%), rgba(0,0,255,0) 100%);
+$secondary_background: linear-gradient(#00000000, #00000000 10%, $primary_background_colour 20%, $primary_background_colour);
 $font: sans-serif;
 @keyframes wavvy_text {
   0% {
@@ -40,6 +36,17 @@ $font: sans-serif;
     transform: rotate(359deg);
   }
 }
+@keyframes backgroundscroll {
+  from {
+    //transform: translate3d(0, 0, 0);
+    background-position: 0 0;
+  }
+
+  to {
+    //transform: translate3d(-100%, 0, 0);
+    background-position: -100% 0;
+  }
+}
 
 * {
   margin: 0;
@@ -49,7 +56,7 @@ $font: sans-serif;
 body {
   color: $primary_colour;
   font-family: $font;
-  background: $secondary_background;
+  background: $primary_background_colour;
 }
 
 a {
@@ -57,142 +64,95 @@ a {
   color: $primary_colour;
 }
 
-.room {
+.wrapper {
   display: flex;
   flex-direction: column;
-  width: 100vw;
+  width: 80%;
+  padding: 10%;
+  margin: auto;
+  align-items: start;
+}
+
+.wrapper-100-100 {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
   height: 100vh;
+  margin: auto;
+  align-items: center;
+  overflow: hidden;
+}
+
+.spooky-background {
+  background: url("/assets/spookybackground.png") repeat;
+  opacity: 0.3;
+  animation: 60s linear infinite backgroundscroll;
+  z-index: -1;
+}
+
+.scrolling-background {
+  width: 300%;
+  height: 100%;
+  position: fixed;
+  animation: 60s linear infinite backgroundscroll;
+}
+
+.blur-background {
+  background: $secondary_background;
+  backdrop-filter: blur(10px);
+}
+
+.title{
+  text-shadow: 0 0 5px black;
+  -webkit-filter: drop-shadow(0px 0px 7px rgba(0,0,0,0.5));
+  filter: drop-shadow(0px 0px 7px rgba(0,0,0,0.5));;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
   align-items: center;
 
-  .cloth {
-    flex: 3 1 200px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-
-    h1 {
-      text-align: center;
-      font-size: 64px;
-      animation: 60s ease-in-out infinite wavvy_text;
-    }
-  }
-
-  .napkin {
-    flex: 1 1 50px;
-    display: flex;
-    flex-direction: row;
-    align-items: flex-end;
-
-    h2 {
-      text-align: center;
-    }
-  }
-
-  .table {
-    flex: 2 1 100px;
-    display: flex;
-    margin-top: 20px;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    @media all and (min-width: 600px) {
-      flex-direction: row;
-      align-items: flex-start;
-    }
-    @media all and (max-width: 600px) {
-      flex-direction: column;
-      align-items: stretch;
-    }
-
-    .plate {
-      background: $primary_colour;
-      margin: 16px;
-      padding: 16px;
-      border-radius: 16px;
-      transform: translateY(0px);
-      transition: box-shadow 0.3s ease-out, transform 0.3s ease-out;
-      box-shadow: 0 0 0 $primary_background_colour;
-      text-align: center;
-      // For big screens we have all the fancy hover effects
-      @media all and (min-width: 600px) {
-        min-height: 0;
-        flex: 1 1 100px;
-        max-width: 300px;
-
-        &:hover {
-          transform: translateY(16px);
-          box-shadow: 0 -16px 0 $primary_background_colour;
-
-          p {
-            &:nth-child(odd) {}
-
-            &:nth-child(even) {
-              max-height: 100px;
-              opacity: 1;
-              transition: max-height 0.3s ease-out, opacity 0.3s ease-out 0.3s;
-            }
-          }
-        }
-
-        p {
-          &:nth-child(odd) {
-            font-size: 24px;
-            height: auto;
-            margin: auto;
-          }
-
-          &:nth-child(even) {
-            margin-top: 8px;
-            font-size: 20px;
-            overflow: hidden;
-            max-height: 0;
-            opacity: 0;
-            transition: max-height 0.3s ease-out, opacity 0.3s ease-out;
-          }
-        }
-      }
-      // For small screens we just have the non-fancy static buttons
-      @media all and (max-width: 600px) {
-        min-height: 0;
-        flex: 1 1;
-
-        p {
-          &:nth-child(odd) {
-            font-size: 20px;
-            height: auto;
-          }
-
-          &:nth-child(even) {
-            margin: 0 8px;
-            font-size: 18px;
-          }
-        }
-      }
-
-      &:nth-child(odd) {
-        background: $background_red;
-      }
-
-      &:nth-child(even) {
-        background: $background_blue;
-      }
-    }
-  }
-
-  .floor {
-    flex: 1 1 100px;
-
-    p {
-      display: inline-block;
-    }
+  img{
+    width: 80%;
   }
 }
 
-.nugget {
-  background: $background_red;
+.heading{
+  font-weight: bolder;
+  font-size: 38px;
+}
+
+.project-link{
+  font-weight: bolder;
+  color: $secondary_colour;
+  font-size: 70px;
+  margin: 12px 6px;
+
+  &:hover{
+    color: $primary_colour;
+  }
+}
+
+.footer{
+  width: 100%;
+  height: 40px;
+  background: $primary_background_colour;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+  p {
+    text-align: center;
+    display: inline-block;
+  }
+}
+
+.heart {
   padding: 6px;
+  margin: 0 4px;
   border-radius: 6px;
+  display: inline-block;
 
   &:hover {
-    animation: 1s infinite rotation;
+    animation: 1s infinite linear rotation;
   }
 }
