@@ -1,9 +1,9 @@
-$primary_colour: #fff;
-$primary_background_colour: #121212;
-$secondary_colour: #f74843;
-$secondary_background_colour: #2f0063;
-$secondary_background: linear-gradient(#00000000, #00000000 10%, $primary_background_colour 20%, $primary_background_colour);
-$font: sans-serif;
+// Import the colour palette
+
+@import "palette";
+
+// Animations
+
 @keyframes wavvy_text {
   0% {
     transform: rotate(0deg) translateY(5px) scale(1.01);
@@ -48,6 +48,8 @@ $font: sans-serif;
   }
 }
 
+// Global styles
+
 * {
   margin: 0;
   padding: 0;
@@ -64,43 +66,113 @@ a {
   color: $primary_colour;
 }
 
-.wrapper {
+.fixed{
+  position: fixed;
+}
+
+.sticky{
+  position: sticky;
+}
+
+// Navigation related styles
+
+.nav{
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: start;
+
+  a{
+    border-radius: 0 0 50px 50px;
+    background: $primary_background_colour;
+    overflow: hidden;
+    margin: 0 12px;
+    height: 130px;
+    width: 58px;
+    transform: translateY(-80px);
+    box-shadow: 0 0 5px black;
+    transition: transform .3s ease-out;
+
+    &:hover{
+      transform: translateY(0px);
+    }
+  }
+
+  img{
+    height: 38px;
+    padding: 4px 10px 8px 10px;
+  }
+
+  p{
+    writing-mode: vertical-rl;
+    font-weight: bolder;
+    height: 69px;
+    width: 36px;
+    text-align: left;
+    line-height: 18px;
+    margin: 8px 6px 3px 6px;
+  }
+}
+
+// Wrapper styles
+
+.wrapper {
   width: 80%;
   padding: 10%;
   margin: auto;
-  align-items: start;
 }
 
 .wrapper-100-100 {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100vh;
-  margin: auto;
-  align-items: center;
   overflow: hidden;
 }
 
-.spooky-background {
-  background: url("/assets/spookybackground.png") repeat;
-  opacity: 0.3;
-  animation: 60s linear infinite backgroundscroll;
-  z-index: -1;
+.wrapper-100w {
+  width: 100%;
+  overflow: hidden;
 }
+
+// Hero related styles
+
+.hero-flex-col-start{
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.hero-flex-col-center{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+// Background related styles
 
 .scrolling-background {
   width: 300%;
   height: 100%;
-  position: fixed;
   animation: 60s linear infinite backgroundscroll;
+  background-repeat: repeat-x;
 }
 
 .blur-background {
   background: $secondary_background;
   backdrop-filter: blur(10px);
 }
+
+.stripped-red-dark-background{
+  background: linear-gradient(to left, darken($secondary_colour,50%),darken($secondary_colour,50%) 50%,lighten($primary_background_colour, 5%) 50%,lighten($primary_background_colour, 5%)) repeat;
+  background-size: 10%;
+}
+
+.dark-background{
+  background: $primary_background_colour;
+}
+
+// Title images and text related styles
 
 .title{
   text-shadow: 0 0 5px black;
@@ -115,6 +187,8 @@ a {
     width: 80%;
   }
 }
+
+// Text related styles
 
 .heading{
   font-weight: bolder;
@@ -132,6 +206,14 @@ a {
   }
 }
 
+.paragraph{
+  font-weight: bolder;
+  font-size: 40px;
+  margin: 12px 6px;
+}
+
+// Footer related styles
+
 .footer{
   width: 100%;
   height: 40px;
@@ -139,6 +221,7 @@ a {
   display: flex;
   align-items: center;
   flex-direction: column;
+  bottom: 0;
 
   p {
     text-align: center;
@@ -146,13 +229,23 @@ a {
   }
 }
 
+// Spans and in-text links
+
 .heart {
   padding: 6px;
   margin: 0 4px;
-  border-radius: 6px;
   display: inline-block;
 
   &:hover {
-    animation: 1s infinite linear rotation;
+    animation: .3s infinite linear rotation;
+  }
+}
+
+p a{
+  font-weight: bolder;
+  color: $secondary_colour;
+
+  &:hover{
+    color: $primary_colour;
   }
 }

@@ -1,0 +1,20 @@
+.incel-background {
+  background-image: url("/assets/chodeback.png");
+  opacity: 0.3;
+  animation: 60s linear infinite backgroundscroll;
+  z-index: -1;
+}
+
+.title {
+  padding: 50px;
+  margin: 60px;
+}
+.title .subtitle {
+  font-size: larger;
+}
+.title > p {
+  font-size: 70px;
+  font-weight: bolder;
+}
+
+/*# sourceMappingURL=incel-master.css.map */

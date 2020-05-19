@@ -47,42 +47,98 @@ a {
   color: #fff;
 }
 
-.wrapper {
+.fixed {
+  position: fixed;
+}
+
+.sticky {
+  position: sticky;
+}
+
+.nav {
+  top: 0;
+  left: 0;
+  right: 0;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: start;
+}
+.nav a {
+  border-radius: 0 0 50px 50px;
+  background: #121212;
+  overflow: hidden;
+  margin: 0 12px;
+  height: 130px;
+  width: 58px;
+  transform: translateY(-80px);
+  box-shadow: 0 0 5px black;
+  transition: transform 0.3s ease-out;
+}
+.nav a:hover {
+  transform: translateY(0px);
+}
+.nav img {
+  height: 38px;
+  padding: 4px 10px 8px 10px;
+}
+.nav p {
+  writing-mode: vertical-rl;
+  font-weight: bolder;
+  height: 69px;
+  width: 36px;
+  text-align: left;
+  line-height: 18px;
+  margin: 8px 6px 3px 6px;
+}
+
+.wrapper {
   width: 80%;
   padding: 10%;
   margin: auto;
-  align-items: start;
 }
 
 .wrapper-100-100 {
-  display: flex;
-  flex-direction: column;
   width: 100%;
   height: 100vh;
-  margin: auto;
-  align-items: center;
   overflow: hidden;
 }
 
-.spooky-background {
-  background: url("/assets/spookybackground.png") repeat;
-  opacity: 0.3;
-  animation: 60s linear infinite backgroundscroll;
-  z-index: -1;
+.wrapper-100w {
+  width: 100%;
+  overflow: hidden;
+}
+
+.hero-flex-col-start {
+  display: flex;
+  flex-direction: column;
+  align-items: start;
+}
+
+.hero-flex-col-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .scrolling-background {
   width: 300%;
   height: 100%;
-  position: fixed;
   animation: 60s linear infinite backgroundscroll;
+  background-repeat: repeat-x;
 }
 
 .blur-background {
   background: linear-gradient(#00000000, #00000000 10%, #121212 20%, #121212);
   backdrop-filter: blur(10px);
+}
+
+.stripped-red-dark-background {
+  background: linear-gradient(to left, #390402, #390402 50%, #1f1f1f 50%, #1f1f1f) repeat;
+  background-size: 10%;
+}
+
+.dark-background {
+  background: #121212;
 }
 
 .title {
@@ -113,6 +169,12 @@ a {
   color: #fff;
 }
 
+.paragraph {
+  font-weight: bolder;
+  font-size: 40px;
+  margin: 12px 6px;
+}
+
 .footer {
   width: 100%;
   height: 40px;
@@ -120,6 +182,7 @@ a {
   display: flex;
   align-items: center;
   flex-direction: column;
+  bottom: 0;
 }
 .footer p {
   text-align: center;
@@ -129,11 +192,18 @@ a {
 .heart {
   padding: 6px;
   margin: 0 4px;
-  border-radius: 6px;
   display: inline-block;
 }
 .heart:hover {
-  animation: 1s infinite linear rotation;
+  animation: 0.3s infinite linear rotation;
+}
+
+p a {
+  font-weight: bolder;
+  color: #f74843;
+}
+p a:hover {
+  color: #fff;
 }
 
 /*# sourceMappingURL=master.css.map */

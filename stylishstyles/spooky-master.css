@@ -1,0 +1,8 @@
+.spooky-background {
+  background-image: url("/assets/spookybackground.png");
+  opacity: 0.3;
+  animation: 60s linear infinite backgroundscroll;
+  z-index: -1;
+}
+
+/*# sourceMappingURL=spooky-master.css.map */
