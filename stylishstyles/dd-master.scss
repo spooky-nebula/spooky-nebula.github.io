@@ -1,0 +1,21 @@
+@import 'palette';
+.incel-background {
+  background-image: url('/assets/dd-back.png');
+  opacity: 0.3;
+  animation: 60s linear infinite backgroundscroll;
+  z-index: -1;
+}
+
+.title {
+  padding: 50px;
+  margin: 60px;
+
+  .subtitle {
+    font-size: larger;
+  }
+
+  > p {
+    font-size: 70px;
+    font-weight: bolder;
+  }
+}

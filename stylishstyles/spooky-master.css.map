@@ -1,1 +1,10 @@
-{"version":3,"sourceRoot":"","sources":["spooky-master.scss"],"names":[],"mappings":"AACA;EACE;EACA;EACA;EACA","file":"spooky-master.css"}
+{
+    "version": 3,
+    "mappings": "AACA,AAAA,kBAAkB,CAAC;EACjB,gBAAgB,EAAE,mCAAmC;EACrD,OAAO,EAAE,GAAG;EACZ,SAAS,EAAE,oCAAoC;EAC/C,OAAO,EAAE,EAAE;CACZ",
+    "sources": [
+        "spooky-master.scss",
+        "palette.scss"
+    ],
+    "names": [],
+    "file": "spooky-master.css"
+}

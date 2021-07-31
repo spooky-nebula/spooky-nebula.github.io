@@ -1,6 +1,6 @@
 // Import the colour palette
 
-@import "palette";
+@import 'palette';
 
 // Animations
 
@@ -66,17 +66,17 @@ a {
   color: $primary_colour;
 }
 
-.fixed{
+.fixed {
   position: fixed;
 }
 
-.sticky{
+.sticky {
   position: sticky;
 }
 
 // Navigation related styles
 
-.nav{
+.nav {
   top: 0;
   left: 0;
   right: 0;
@@ -84,7 +84,7 @@ a {
   flex-direction: row;
   align-items: start;
 
-  a{
+  a {
     border-radius: 0 0 50px 50px;
     background: $primary_background_colour;
     overflow: hidden;
@@ -93,19 +93,19 @@ a {
     width: 58px;
     transform: translateY(-80px);
     box-shadow: 0 0 5px black;
-    transition: transform .3s ease-out;
+    transition: transform 0.3s ease-out;
 
-    &:hover{
+    &:hover {
       transform: translateY(0px);
     }
   }
 
-  img{
+  img {
     height: 38px;
     padding: 4px 10px 8px 10px;
   }
 
-  p{
+  p {
     writing-mode: vertical-rl;
     font-weight: bolder;
     height: 69px;
@@ -137,13 +137,13 @@ a {
 
 // Hero related styles
 
-.hero-flex-col-start{
+.hero-flex-col-start {
   display: flex;
   flex-direction: column;
   align-items: start;
 }
 
-.hero-flex-col-center{
+.hero-flex-col-center {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -163,58 +163,69 @@ a {
   backdrop-filter: blur(10px);
 }
 
-.stripped-red-dark-background{
-  background: linear-gradient(to left, darken($secondary_colour,50%),darken($secondary_colour,50%) 50%,lighten($primary_background_colour, 5%) 50%,lighten($primary_background_colour, 5%)) repeat;
+.stripped-red-dark-background {
+  background: linear-gradient(
+      to left,
+      darken($secondary_colour, 50%),
+      darken($secondary_colour, 50%) 50%,
+      lighten($primary_background_colour, 5%) 50%,
+      lighten($primary_background_colour, 5%)
+    )
+    repeat;
   background-size: 10%;
 }
 
-.dark-background{
+.dark-background {
   background: $primary_background_colour;
 }
 
 // Title images and text related styles
 
-.title{
+.title {
   text-shadow: 0 0 5px black;
-  -webkit-filter: drop-shadow(0px 0px 7px rgba(0,0,0,0.5));
-  filter: drop-shadow(0px 0px 7px rgba(0,0,0,0.5));;
+  -webkit-filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.5));
+  filter: drop-shadow(0px 0px 7px rgba(0, 0, 0, 0.5));
   margin: auto;
   display: flex;
   flex-direction: column;
   align-items: center;
 
-  img{
+  img {
     width: 80%;
   }
 }
 
 // Text related styles
 
-.heading{
+.heading {
   font-weight: bolder;
   font-size: 38px;
 }
 
-.project-link{
+.project-link {
   font-weight: bolder;
   color: $secondary_colour;
   font-size: 70px;
   margin: 12px 6px;
 
-  &:hover{
+  &:hover {
     color: $primary_colour;
   }
 }
 
-.paragraph{
+.paragraph {
   font-weight: bolder;
   font-size: 40px;
   margin: 12px 6px;
 }
 
+.middle-align {
+  text-align: center;
+}
+
 // Footer related styles
 
-.footer{
+.footer {
   width: 100%;
   height: 40px;
   background: $primary_background_colour;
@@ -237,15 +248,15 @@ a {
   display: inline-block;
 
   &:hover {
-    animation: .3s infinite linear rotation;
+    animation: 0.3s infinite linear rotation;
   }
 }
 
-p a{
+p a {
   font-weight: bolder;
   color: $secondary_colour;
 
-  &:hover{
+  &:hover {
     color: $primary_colour;
   }
 }
