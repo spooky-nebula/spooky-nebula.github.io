@@ -1,8 +1,13 @@
 .spooky-background {
   background-image: url("/assets/spookybackground.png");
+  background-attachment: fixed;
+  background-position: center;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
   opacity: 0.3;
-  -webkit-animation: 60s linear infinite backgroundscroll;
-          animation: 60s linear infinite backgroundscroll;
   z-index: -1;
 }
 /*# sourceMappingURL=spooky-master.css.map */

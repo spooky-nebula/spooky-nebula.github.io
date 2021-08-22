@@ -1,20 +1,19 @@
-@import "palette";
+@import 'palette';
 .incel-background {
-  background-image: url("/assets/chodeback.png");
+  background-image: url('/assets/chodeback.png');
   opacity: 0.3;
-  animation: 60s linear infinite backgroundscroll;
   z-index: -1;
 }
 
-.title{
+.title {
   padding: 50px;
   margin: 60px;
 
-  .subtitle{
+  .subtitle {
     font-size: larger;
   }
 
-  >p{
+  > p {
     font-size: 70px;
     font-weight: bolder;
   }

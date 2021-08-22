@@ -71,7 +71,7 @@
     background-position: 0 0;
   }
   to {
-    background-position: -100% 0;
+    background-position: -1000% 0;
   }
 }
 
@@ -80,7 +80,49 @@
     background-position: 0 0;
   }
   to {
-    background-position: -100% 0;
+    background-position: -1000% 0;
+  }
+}
+
+@-webkit-keyframes verticalscrolltransparent {
+  0% {
+    -webkit-transform: translateY(-12px);
+            transform: translateY(-12px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(12px);
+            transform: translateY(12px);
+    opacity: 0;
+  }
+}
+
+@keyframes verticalscrolltransparent {
+  0% {
+    -webkit-transform: translateY(-12px);
+            transform: translateY(-12px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  50% {
+    -webkit-transform: translateY(0px);
+            transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    -webkit-transform: translateY(12px);
+            transform: translateY(12px);
+    opacity: 0;
   }
 }
 
@@ -123,6 +165,7 @@ a {
   -webkit-box-align: start;
       -ms-flex-align: start;
           align-items: start;
+  z-index: 100;
 }
 
 .nav a {
@@ -165,20 +208,47 @@ a {
 }
 
 .wrapper {
+  position: relative;
   width: 80%;
-  padding: 10%;
+  padding: 80px 10% 80px;
   margin: auto;
 }
 
 .wrapper-100-100 {
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
 .wrapper-100w {
+  position: relative;
   width: 100%;
   overflow: hidden;
+}
+
+.hinted-down::after {
+  font-family: monospace;
+  content: '>';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  -webkit-transform: translateX(-50%) translateY(-10px);
+          transform: translateX(-50%) translateY(-10px);
+  opacity: 0;
+  padding: 10px;
+  font-size: 70px;
+  text-orientation: sideways;
+  -webkit-writing-mode: vertical-lr;
+      -ms-writing-mode: tb-lr;
+          writing-mode: vertical-lr;
+  text-shadow: 0px 0px 5px black;
+  -webkit-animation: 1s linear infinite verticalscrolltransparent;
+          animation: 1s linear infinite verticalscrolltransparent;
+  -webkit-animation-delay: 5s;
+          animation-delay: 5s;
+  -webkit-animation-iteration-count: 3;
+          animation-iteration-count: 3;
 }
 
 .hero-flex-col-start {
@@ -208,7 +278,7 @@ a {
 }
 
 .scrolling-background {
-  width: 300%;
+  width: 100%;
   height: 100%;
   -webkit-animation: 60s linear infinite backgroundscroll;
           animation: 60s linear infinite backgroundscroll;
@@ -279,6 +349,79 @@ a {
   text-align: center;
 }
 
+.roadmap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  max-height: 800px;
+  width: 100%;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: start;
+  margin: 20px;
+}
+
+/*
+.roadmap-Q1,.roadmap-Q2,.roadmap-Q3,.roadmap-Q4{
+  flex: 1 1 0;
+  overflow: hidden;
+
+  >h1{
+    flex: 0 0 80px;
+    padding: 12px;
+    text-align: center;
+    background: $secondary_background_colour;
+    border-bottom: 2px solid $secondary_colour;
+  }
+}
+
+.roadmap-task{
+  flex: 1 1 80px;
+  background: $primary_colour;
+  padding: 6px;
+  margin: 4px;
+  color: $primary_background_colour;
+
+  >h1{
+
+  }
+
+  >h2{
+    font-weight: lighter;
+    font-size: 28px;
+    float: right;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  .roadmap-task-title{
+    letter-spacing: 4px;
+  }
+
+  .roadmap-task-body{
+
+  }
+
+  .roadmap-task-list{
+    p{
+      position: relative;
+      font-size: 32px;
+      font-weight: bolder;
+      padding-left: 4px;
+      margin: 4px 2px;
+
+      &::before{
+        position: absolute;
+        content: "-";
+        left: -10px
+      }
+    }
+  }
+}*/
 .footer {
   width: 100%;
   height: 40px;
@@ -319,5 +462,19 @@ p a {
 
 p a:hover {
   color: #fff;
+}
+
+.coverart {
+  margin: 20px;
+  display: inline-block;
+}
+
+.coverart img {
+  width: 250px;
+}
+
+.coverart.withdate p {
+  display: block;
+  text-align: center;
 }
 /*# sourceMappingURL=master.css.map */

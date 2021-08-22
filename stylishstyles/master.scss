@@ -44,7 +44,24 @@
 
   to {
     //transform: translate3d(-100%, 0, 0);
-    background-position: -100% 0;
+    background-position: -1000% 0;
+  }
+}
+@keyframes verticalscrolltransparent {
+  0% {
+    transform: translateY(-12px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0.8;
+  }
+  50% {
+    transform: translateY(0px);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(12px);
+    opacity: 0;
   }
 }
 
@@ -83,7 +100,7 @@ a {
   display: flex;
   flex-direction: row;
   align-items: start;
-  z-index: 1;
+  z-index: 100;
 
   a {
     border-radius: 0 0 50px 50px;
@@ -120,20 +137,43 @@ a {
 // Wrapper styles
 
 .wrapper {
+  position: relative;
   width: 80%;
-  padding: 10%;
+  padding: 80px 10% 80px;
   margin: auto;
 }
 
 .wrapper-100-100 {
+  position: relative;
   width: 100%;
   height: 100vh;
   overflow: hidden;
 }
 
 .wrapper-100w {
+  position: relative;
   width: 100%;
   overflow: hidden;
+}
+
+.hinted-down {
+  &::after {
+    font-family: monospace;
+    content: '>';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%) translateY(-10px);
+    opacity: 0;
+    padding: 10px;
+    font-size: 70px;
+    text-orientation: sideways;
+    writing-mode: vertical-lr;
+    text-shadow: 0px 0px 5px black;
+    animation: 1s linear infinite verticalscrolltransparent;
+    animation-delay: 5s;
+    animation-iteration-count: 3;
+  }
 }
 
 // Hero related styles
@@ -153,7 +193,7 @@ a {
 // Background related styles
 
 .scrolling-background {
-  width: 300%;
+  width: 100%;
   height: 100%;
   animation: 60s linear infinite backgroundscroll;
   background-repeat: repeat-x;
@@ -224,6 +264,77 @@ a {
   text-align: center;
 }
 
+// TODO: Make an actual roadmap
+
+// Roadmap related styles
+
+.roadmap {
+  display: flex;
+  flex-direction: row;
+  max-height: 800px;
+  width: 100%;
+  align-items: start;
+  margin: 20px;
+}
+
+/*
+.roadmap-Q1,.roadmap-Q2,.roadmap-Q3,.roadmap-Q4{
+  flex: 1 1 0;
+  overflow: hidden;
+
+  >h1{
+    flex: 0 0 80px;
+    padding: 12px;
+    text-align: center;
+    background: $secondary_background_colour;
+    border-bottom: 2px solid $secondary_colour;
+  }
+}
+
+.roadmap-task{
+  flex: 1 1 80px;
+  background: $primary_colour;
+  padding: 6px;
+  margin: 4px;
+  color: $primary_background_colour;
+
+  >h1{
+
+  }
+
+  >h2{
+    font-weight: lighter;
+    font-size: 28px;
+    float: right;
+    writing-mode: vertical-rl;
+    text-orientation: upright;
+  }
+
+  .roadmap-task-title{
+    letter-spacing: 4px;
+  }
+
+  .roadmap-task-body{
+
+  }
+
+  .roadmap-task-list{
+    p{
+      position: relative;
+      font-size: 32px;
+      font-weight: bolder;
+      padding-left: 4px;
+      margin: 4px 2px;
+
+      &::before{
+        position: absolute;
+        content: "-";
+        left: -10px
+      }
+    }
+  }
+}*/
+
 // Footer related styles
 
 .footer {
@@ -259,5 +370,21 @@ p a {
 
   &:hover {
     color: $primary_colour;
+  }
+}
+
+.coverart {
+  margin: 20px;
+  display: inline-block;
+
+  img {
+    width: 250px;
+  }
+
+  &.withdate {
+    p {
+      display: block;
+      text-align: center;
+    }
   }
 }

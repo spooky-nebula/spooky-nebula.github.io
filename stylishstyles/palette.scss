@@ -1,6 +1,11 @@
 $primary_colour: #fff;
 $primary_background_colour: #121212;
 $secondary_colour: #f74843;
-$secondary_background_colour: #2f0063;
-$secondary_background: linear-gradient(#00000000, #00000000 10%, $primary_background_colour 20%, $primary_background_colour);
+$secondary_background_colour: #323232;
+$secondary_background: linear-gradient(
+  #00000000,
+  #00000000 10%,
+  $primary_background_colour 20%,
+  $primary_background_colour
+);
 $font: sans-serif;
